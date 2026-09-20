@@ -25,6 +25,11 @@ a{color:#2A60E5}
 <p>On each launch the app reads two small files published at this address: one that can switch a broken feature off, and one that can carry new questions. They are the same files for everybody, nothing about you is sent with the request, and the host (GitHub Pages) sees what any web server sees, which is an IP address and the time.</p>
 <p>The phone also downloads Apple's speech model once, from Apple. That download is what keeps transcription on the device.</p>
 
+<h2>Spiel reading your answer</h2>
+<p>This is optional and off until you turn it on, and the app shows a screen explaining it and asking first. With it on, three things go out after each answer: the question, the three things a complete answer to it covers, and the text of what you said that time. Your recording never goes: your voice stays on your phone. Your name, your streak and your other answers are not sent either.</p>
+<p>The request goes to a server we run, which passes it to Google's Gemini under its <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>. What comes back is which parts of the question you covered and one thing to change. Neither we nor Google keep a record of it against you, and we do not store the transcript. The switch in Settings stops it immediately.</p>
+<p>With it off, the app decides which parts you covered on the device, by looking for the phrases the question expects.</p>
+
 <h2>Questions for a company</h2>
 <p>This is optional, and the app shows a screen explaining it and asks for your agreement before the first request. When you ask for questions for a company, the app sends three things: the company or school name you typed, the role you typed, and which kind of interview you picked in the app. Nothing else is sent: not your voice, not your answers or transcripts, not your results, not your interview date, and no identifier for you or your phone.</p>
 <p>The request goes to a server we run (a Supabase Edge Function), which passes those lines to Google's Gemini API. Gemini searches the web about the company and writes the questions, and they come back to your phone, where they are saved. Google processes the request under its <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>.</p>
