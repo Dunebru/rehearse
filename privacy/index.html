@@ -10,7 +10,7 @@ a{color:#2A60E5}
 <h1>Privacy Policy</h1>
 <p class="meta">Interview practice for the iPhone (bundle id com.vivekkesara.interviewpractice) · last updated 19 September 2026</p>
 
-<p class="short"><strong>Short version:</strong> everything you say and everything the app works out about it stays on your phone. There is no account, no analytics, no advertising, and no server that receives your voice, your words or your results.</p>
+<p class="short"><strong>Short version:</strong> everything you say and everything the app works out about it stays on your phone. There is no account, no analytics, no advertising, and no server that receives your voice, your words or your results. One optional feature sends something you type: if you ask for questions about a company, the company name and the role go to Google's Gemini to write them, and the app asks you first.</p>
 
 <h2>Your voice</h2>
 <p>The app uses the microphone only while you are answering a question. Your speech is turned into text on your own device, using Apple's on-device speech recognition. The app requires on-device transcription and will refuse to run rather than send your audio anywhere.</p>
@@ -25,8 +25,14 @@ a{color:#2A60E5}
 <p>On each launch the app reads two small files published at this address: one that can switch a broken feature off, and one that can carry new questions. They are the same files for everybody, nothing about you is sent with the request, and the host (GitHub Pages) sees what any web server sees, which is an IP address and the time.</p>
 <p>The phone also downloads Apple's speech model once, from Apple. That download is what keeps transcription on the device.</p>
 
+<h2>Questions for a company</h2>
+<p>This is optional, and the app shows a screen explaining it and asks for your agreement before the first request. When you ask for questions for a company, the app sends three things: the company or school name you typed, the role you typed, and which kind of interview you picked in the app. Nothing else is sent: not your voice, not your answers or transcripts, not your results, not your interview date, and no identifier for you or your phone.</p>
+<p>The request goes to a server we run (a Supabase Edge Function), which passes those lines to Google's Gemini API. Gemini searches the web about the company and writes the questions, and they come back to your phone, where they are saved. Google processes the request under its <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>.</p>
+<p>Our server does not store what you typed or the questions. To stop abuse it keeps a count of requests per day against a scrambled (salted and hashed) form of the network address the request came from, which cannot be turned back into the address, and deletes it after two days. Like any web server, the hosting provider's short-lived operational logs may record that a request happened.</p>
+<p>The questions are written by AI and can contain mistakes about a company. "Delete all history" removes them from your phone.</p>
+
 <h2>What the app does not do</h2>
-<p>No account and no sign-in. No analytics or crash reporting SDKs. No advertising and no advertising identifiers. No tracking across apps or websites. Nothing is sold or shared, because nothing is collected.</p>
+<p>No account and no sign-in. No analytics or crash reporting SDKs. No advertising and no advertising identifiers. No tracking across apps or websites. Nothing is sold, and nothing is shared except the company and role described above, when you ask for it.</p>
 <p>The app never listens to a real interview and never supplies answers during one. It is for practice beforehand.</p>
 
 <h2>Purchases</h2>
